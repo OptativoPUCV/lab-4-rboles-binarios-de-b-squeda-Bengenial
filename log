@@ -67,3 +67,18 @@ treemap.c:52:6: note: declared here
       ^~~~~~~~~~~~~
 cc1.exe: all warnings being treated as errors
 30e0c3c
+Tue, Apr 29, 2025 11:00:05 PM: 
+ treemap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+Compilation failed
+In file included from test.c:4:0:
+treemap.c: In function 'insertTreeMap':
+treemap.c:57:5: error: expected expression before '}' token
+     }
+     ^
+treemap.c:57:5: error: 'return' with a value, in function returning void [-Werror]
+treemap.c:52:6: note: declared here
+ void insertTreeMap(TreeMap * tree, void* key, void * value) {
+      ^~~~~~~~~~~~~
+cc1.exe: all warnings being treated as errors
+1bc3cde
