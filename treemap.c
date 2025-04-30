@@ -50,11 +50,19 @@ TreeMap * createTreeMap(int (*lower_than) (void* key1, void* key2)) {
 
 
 void insertTreeMap(TreeMap * tree, void* key, void * value) {
-    if (tree->root == NULL){
+    if (tree->root == NULL){ //si el arbol esta vacio 
         tree->root = createTreeNode(key, value);
         tree->current = tree->root;
         return;
     }
+
+    //buscar la posicion
+    TreeNode *nodo = tree->root;
+
+    while (nodo != NULL){
+        if(is_equal(nodo, key, nodo->pair->key)) return;
+    }
+
 }
 
 TreeNode * minimum(TreeNode * x){
