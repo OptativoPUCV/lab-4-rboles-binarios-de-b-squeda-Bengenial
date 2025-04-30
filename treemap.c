@@ -57,8 +57,8 @@ void insertTreeMap(TreeMap * tree, void* key, void * value) {
     }
 
     //buscar la posicion
-    Pair *par = searchTreeMap(tree, key);
-    if (par != NULL) return; //key repetida
+    
+    if (searchTreeMap(tree, key) != NULL) return; //key repetida
 
     TreeNode *nuevo = createTreeNode(key,value);
     TreeNode *padre = tree->current;
