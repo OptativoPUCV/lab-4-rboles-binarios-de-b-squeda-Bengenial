@@ -163,3 +163,17 @@ treemap.c:95:21: error: left-hand operand of comma expression has no effect [-We
                      ^
 cc1.exe: all warnings being treated as errors
 3e2df87
+Tue, Apr 29, 2025 11:38:47 PM: 
+ treemap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+Compilation failed
+In file included from test.c:4:0:
+treemap.c: In function 'searchTreeMap':
+treemap.c:95:21: error: passing argument 1 of 'is_equal' from incompatible pointer type [-Werror=incompatible-pointer-types]
+         if(is_equal(nodo, key, nodo->pair->key)){
+                     ^~~~
+treemap.c:22:5: note: expected 'TreeMap * {aka struct TreeMap *}' but argument is of type 'TreeNode * {aka struct TreeNode *}'
+ int is_equal(TreeMap* tree, void* key1, void* key2){
+     ^~~~~~~~
+cc1.exe: all warnings being treated as errors
+dfda25f
