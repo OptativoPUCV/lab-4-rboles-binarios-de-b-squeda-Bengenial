@@ -98,7 +98,7 @@ void removeNode(TreeMap * tree, TreeNode* node) {
             tree->root->right = NULL;
         }
         free(node);
-
+        return;
     }
 
     //con un hijo
