@@ -233,3 +233,36 @@ Wed, Apr 30, 2025  1:14:54 AM:
  1 file changed, 8 insertions(+), 10 deletions(-)
  tests:  0|0
 1632343
+Wed, Apr 30, 2025  1:16:59 AM: 
+ treemap.c | 37 +++++++++++++++++++++----------------
+ 1 file changed, 21 insertions(+), 16 deletions(-)
+Compilation failed
+In file included from test.c:4:0:
+treemap.c: In function 'createTreeMap':
+treemap.c:40:9: error: 'tree' undeclared (first use in this function)
+     if (tree->root == NULL) {
+         ^~~~
+treemap.c:40:9: note: each undeclared identifier is reported only once for each function it appears in
+treemap.c:42:37: error: 'key' undeclared (first use in this function)
+         tree->root = createTreeNode(key, value);
+                                     ^~~
+treemap.c:42:42: error: 'value' undeclared (first use in this function)
+         tree->root = createTreeNode(key, value);
+                                          ^~~~~
+treemap.c:44:9: error: 'return' with no value, in function returning non-void [-Werror]
+         return;
+         ^~~~~~
+treemap.c:39:11: note: declared here
+ TreeMap * createTreeMap(int (*lower_than) (void* key1, void* key2)) {
+           ^~~~~~~~~~~~~
+treemap.c:54:13: error: 'return' with no value, in function returning non-void [-Werror]
+             return;
+             ^~~~~~
+treemap.c:39:11: note: declared here
+ TreeMap * createTreeMap(int (*lower_than) (void* key1, void* key2)) {
+           ^~~~~~~~~~~~~
+treemap.c:79:1: error: control reaches end of non-void function [-Werror=return-type]
+ }
+ ^
+cc1.exe: all warnings being treated as errors
+3c56601

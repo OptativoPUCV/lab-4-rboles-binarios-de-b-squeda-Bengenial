@@ -37,39 +37,44 @@ TreeNode * createTreeNode(void* key, void * value) {
 }
 
 TreeMap * createTreeMap(int (*lower_than) (void* key1, void* key2)) {
-    TreeMap *map = (TreeMap *) malloc(sizeof(TreeMap));
-    if (map == NULL) return NULL;
-
-    map->root = NULL;
-    map->current = NULL;
-    map->lower_than = lower_than;
-
-
-    return map;
-}
-
-
-void insertTreeMap(TreeMap * tree, void* key, void * value) {
-    if (tree->root == NULL){ //si el arbol esta vacio 
+    if (tree->root == NULL) {
+        // Si el árbol está vacío, se crea la raíz
         tree->root = createTreeNode(key, value);
         tree->current = tree->root;
         return;
     }
 
-    //buscar la posicion
-    
-    if (searchTreeMap(tree, key) != NULL) return; //key repetida
+    TreeNode *node = tree->root;
+    TreeNode *parent = NULL;
 
-    TreeNode* parent = tree->current;
-    TreeNode* newNode = createTreeNode(key, value);
+    // Búsqueda para encontrar la posición donde insertar
+    while (node != NULL) {
+        if (is_equal(tree, key, node->pair->key)) {
+            // Si la clave ya existe, no se inserta nada
+            return;
+        }
+
+        parent = node;
+
+        if (tree->lower_than(key, node->pair->key)) {
+            node = node->left;
+        } else {
+            node = node->right;
+        }
+    }
+
+    // Crear nuevo nodo
+    TreeNode *newNode = createTreeNode(key, value);
     newNode->parent = parent;
 
+    // Insertar nuevo nodo en la posición correcta
     if (tree->lower_than(key, parent->pair->key)) {
         parent->left = newNode;
     } else {
         parent->right = newNode;
     }
 
+    // Actualizar el current
     tree->current = newNode;
 }   
 
