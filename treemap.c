@@ -50,45 +50,29 @@ TreeMap * createTreeMap(int (*lower_than) (void* key1, void* key2)) {
 
 
 void insertTreeMap(TreeMap * tree, void* key, void * value) {
-    if (tree->root == NULL) {
-        // Si el árbol está vacío, se crea la raíz
+    if (tree->root == NULL){ //si el arbol esta vacio 
         tree->root = createTreeNode(key, value);
         tree->current = tree->root;
         return;
     }
 
-    TreeNode *node = tree->root;
-    TreeNode *parent = NULL;
+    //buscar la posicion
+    
+    if (searchTreeMap(tree, key) != NULL) return; //key repetida
 
-    // Búsqueda para encontrar la posición donde insertar
-    while (node != NULL) {
-        if (is_equal(tree, key, node->pair->key)) {
-            // Si la clave ya existe, no se inserta nada
-            return;
-        }
+    TreeNode *nuevo = createTreeNode(key,value);
+    TreeNode *padre = tree->current;
 
-        parent = node;
+    nuevo->parent = padre;
 
-        if (tree->lower_than(key, node->pair->key)) {
-            node = node->left;
-        } else {
-            node = node->right;
-        }
+    if(tree->lower_than(key, padre->pair->key)){
+        padre->left = nuevo;
     }
-
-    // Crear nuevo nodo
-    TreeNode *newNode = createTreeNode(key, value);
-    newNode->parent = parent;
-
-    // Insertar nuevo nodo en la posición correcta
-    if (tree->lower_than(key, parent->pair->key)) {
-        parent->left = newNode;
-    } else {
-        parent->right = newNode;
+    else{
+        padre->right = nuevo;
     }
-
-    // Actualizar el current
-    tree->current = newNode;
+    
+    tree->current = nuevo;
 }   
 
 TreeNode * minimum(TreeNode * x){
@@ -116,8 +100,10 @@ void eraseTreeMap(TreeMap * tree, void* key){
 Pair * searchTreeMap(TreeMap * tree, void* key) {
     
     TreeNode *nodo = tree->root;
+    TreeNode *ultimo = NULL; //posible padre
     //recorrer el arbol
     while (nodo != NULL){
+        ultimo = nodo;
         if(is_equal(tree, key, nodo->pair->key)){
             tree->current = nodo;
             return nodo->pair;
@@ -129,6 +115,7 @@ Pair * searchTreeMap(TreeMap * tree, void* key) {
             nodo = nodo->right;
         }
     }
+    tree->current = ultimo;
     return NULL;
 }
 
