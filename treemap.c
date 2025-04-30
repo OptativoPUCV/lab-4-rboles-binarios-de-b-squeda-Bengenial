@@ -59,10 +59,10 @@ void insertTreeMap(TreeMap * tree, void* key, void * value) {
     //buscar la posicion
     TreeNode *nodo = tree->root;
 
-    while (nodo != NULL){
+    /*while (nodo != NULL){
         if(is_equal(nodo, key, nodo->pair->key)) return;
     }
-
+*/
 }
 
 TreeNode * minimum(TreeNode * x){
