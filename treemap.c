@@ -92,9 +92,15 @@ Pair * searchTreeMap(TreeMap * tree, void* key) {
     TreeNode *nodo = tree->root;
 
     while (nodo != NULL){
-        if(is_equal(nodo, key, nodo->pair->key)){
+        if(is_equal(tree, key, nodo->pair->key)){
             tree->current = nodo;
             return nodo->pair;
+        }
+        if (tree->lower_than(key,nodo->pair->key)){
+            nodo = nodo->left;
+        }
+        else{
+            nodo = nodo->right;
         }
     }
     return NULL;
