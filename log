@@ -108,3 +108,15 @@ treemap.c:22:5: note: expected 'TreeMap * {aka struct TreeMap *}' but argument i
      ^~~~~~~~
 cc1.exe: all warnings being treated as errors
 c24de85
+Tue, Apr 29, 2025 11:30:31 PM: 
+Compilation failed
+In file included from test.c:4:0:
+treemap.c: In function 'insertTreeMap':
+treemap.c:63:21: error: passing argument 1 of 'is_equal' from incompatible pointer type [-Werror=incompatible-pointer-types]
+         if(is_equal(nodo, key, nodo->pair->key)) return;
+                     ^~~~
+treemap.c:22:5: note: expected 'TreeMap * {aka struct TreeMap *}' but argument is of type 'TreeNode * {aka struct TreeNode *}'
+ int is_equal(TreeMap* tree, void* key1, void* key2){
+     ^~~~~~~~
+cc1.exe: all warnings being treated as errors
+e39e762
