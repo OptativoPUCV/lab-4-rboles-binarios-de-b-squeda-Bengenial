@@ -57,12 +57,11 @@ void insertTreeMap(TreeMap * tree, void* key, void * value) {
     }
 
     //buscar la posicion
-    //TreeNode *nodo = tree->root;
+    Pair *par = searchTreeMap(tree, key);
+    if (par != NULL) return; //key repetida
 
-    /*while (nodo != NULL){
-        if(is_equal(nodo, key, nodo->pair->key)) return;
-    }
-*/
+    
+
 }
 
 TreeNode * minimum(TreeNode * x){
@@ -90,7 +89,7 @@ void eraseTreeMap(TreeMap * tree, void* key){
 Pair * searchTreeMap(TreeMap * tree, void* key) {
     
     TreeNode *nodo = tree->root;
-
+    //recorrer el arbol
     while (nodo != NULL){
         if(is_equal(tree, key, nodo->pair->key)){
             tree->current = nodo;
