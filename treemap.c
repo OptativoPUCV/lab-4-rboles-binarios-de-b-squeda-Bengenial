@@ -198,7 +198,7 @@ Pair * nextTreeMap(TreeMap * tree) {
     //busca el padre
 
     TreeNode *padre = nodo->parent;
-    if(padre != NULL && padre->pair->key < nodo->pair->key){
+    while(padre != NULL && padre->pair->key < nodo->pair->key){
         padre = padre->parent;
         
     }
