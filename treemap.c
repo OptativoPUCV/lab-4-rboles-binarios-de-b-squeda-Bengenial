@@ -191,6 +191,8 @@ Pair * nextTreeMap(TreeMap * tree) {
     if(nodo->parent != NULL){
         if(nodo->parent->right != NULL){
             nodo = minimum(nodo->parent->right);
+            tree->current = nodo;
+            return nodo->pair;
         }
         
     }
