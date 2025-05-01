@@ -189,6 +189,7 @@ Pair * nextTreeMap(TreeMap * tree) {
     TreeNode *nodo = tree->current;
 
     
+    //si tiene un hijo derecho
     if(nodo->right != NULL){
         nodo = minimum(nodo->right);
         tree->current = nodo;
