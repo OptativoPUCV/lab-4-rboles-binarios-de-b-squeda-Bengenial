@@ -89,7 +89,7 @@ void removeNode(TreeMap * tree, TreeNode* node) {
     //sin hijos
     if (node->left == NULL && node->right == NULL){
         if (node->parent == NULL){
-            tree->root =NULL; // raiz
+            tree->root = NULL; // raiz
         }
         if (node->parent->left == node){
             tree->root->left = NULL;
@@ -171,6 +171,8 @@ Pair * searchTreeMap(TreeMap * tree, void* key) {
 
 
 Pair * upperBound(TreeMap * tree, void* key) {
+    //TreeNode *nodo = searchTreeMap(key);
+
     return NULL;
 }
 
@@ -201,7 +203,6 @@ Pair * nextTreeMap(TreeMap * tree) {
     while(padre != NULL && tree->lower_than(nodo->pair->key, padre->pair->key) == 0){
         nodo = padre;
         padre = padre->parent;
-        
     }
 
     if(padre != NULL){
