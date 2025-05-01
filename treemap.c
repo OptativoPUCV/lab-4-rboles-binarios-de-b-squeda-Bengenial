@@ -181,6 +181,7 @@ Pair * firstTreeMap(TreeMap * tree) {
         nodo = nodo->left;
     }
 
+    tree->current = nodo;
     return nodo->pair;
 }
 
