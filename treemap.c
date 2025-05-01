@@ -50,11 +50,6 @@ TreeMap * createTreeMap(int (*lower_than) (void* key1, void* key2)) {
 
 
 void insertTreeMap(TreeMap * tree, void* key, void * value) {
-    if (tree->root == NULL){ //si el arbol esta vacio 
-        tree->root = createTreeNode(key, value);
-        tree->current = tree->root;
-        return;
-    }
 
     //buscar la posicion
     
@@ -197,6 +192,10 @@ Pair * nextTreeMap(TreeMap * tree) {
 
     //busca el padre
     TreeNode *padre = nodo->parent;
+/*
+    if(padre != NULL && padre == nodo->parent){
+        ss
+    }*/
 
     if(padre != NULL){
         tree->current = padre;
