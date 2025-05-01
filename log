@@ -313,3 +313,14 @@ Wed, Apr 30, 2025  9:13:58 AM:
  tests:  18|3
 total_score: 40/70
 5ffc2ca
+Wed, Apr 30, 2025 11:58:23 PM: 
+ treemap.c | 8 +++++++-
+ 1 file changed, 7 insertions(+), 1 deletion(-)
+Compilation failed
+In file included from test.c:4:0:
+treemap.c: In function 'firstTreeMap':
+treemap.c:184:12: error: return from incompatible pointer type [-Werror=incompatible-pointer-types]
+     return nodo;
+            ^~~~
+cc1.exe: all warnings being treated as errors
+006abe2
