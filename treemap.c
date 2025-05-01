@@ -171,7 +171,8 @@ Pair * searchTreeMap(TreeMap * tree, void* key) {
 
 
 Pair * upperBound(TreeMap * tree, void* key) {
-    TreeNode *nodo = searchTreeMap(tree, key);
+    TreeNode *nodo;
+    nodo->pair = searchTreeMap(tree, key);
     while(nodo->right != NULL){
         nodo = nodo->right;
     }
