@@ -171,7 +171,7 @@ Pair * searchTreeMap(TreeMap * tree, void* key) {
 
 
 Pair * upperBound(TreeMap * tree, void* key) {
-    if(searchTreeMap(tree, key) == NULL) return;
+    if(searchTreeMap(tree, key) == NULL) return NULL;
 
     TreeNode *nodo = tree->current;
 
