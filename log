@@ -463,3 +463,17 @@ treemap.c:175:16: error: 'nodo' is used uninitialized in this function [-Werror=
      ~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~
 cc1.exe: all warnings being treated as errors
 1698ceb
+Thu, May  1, 2025  1:12:22 PM: 
+ treemap.c | 6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
+Compilation failed
+In file included from test.c:4:0:
+treemap.c: In function 'upperBound':
+treemap.c:174:42: error: 'return' with no value, in function returning non-void [-Werror]
+     if(searchTreeMap(tree, key) == NULL) return;
+                                          ^~~~~~
+treemap.c:173:8: note: declared here
+ Pair * upperBound(TreeMap * tree, void* key) {
+        ^~~~~~~~~~
+cc1.exe: all warnings being treated as errors
+a488122
