@@ -171,16 +171,25 @@ Pair * searchTreeMap(TreeMap * tree, void* key) {
 
 
 Pair * upperBound(TreeMap * tree, void* key) {
-    if(searchTreeMap(tree, key) == NULL) return NULL;
+    Pair* par = searchTreeMap(tree, key); //se repite?
+    if (par != NULL) return par;
 
-    TreeNode *nodo = tree->current;
+    TreeNode *nodo = tree->root;
+    TreeNode *upBNodo = NULL;
 
-    while(nodo->right != NULL){
-        nodo = nodo->right;
+    while (nodo != NULL){
+        if (tree->lower_than(key,nodo->pair->key)){ //similar a la busqueda, solo almacena el nodo anterior upBNodo
+            upBNodo = nodo;
+            nodo = nodo->left;
+        }
+        else{
+            nodo->right;
+        }
     }
 
-    tree->current = nodo;
-    return nodo->pair;
+
+    tree->current = upBNodo;
+    return upBNodo->pair;
 }
 
 Pair * firstTreeMap(TreeMap * tree) {
