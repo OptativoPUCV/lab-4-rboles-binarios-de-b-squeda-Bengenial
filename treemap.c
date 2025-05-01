@@ -171,9 +171,6 @@ Pair * searchTreeMap(TreeMap * tree, void* key) {
 
 
 Pair * upperBound(TreeMap * tree, void* key) {
-    Pair* par = searchTreeMap(tree, key); //se repite?
-    if (par != NULL) return par;
-
     TreeNode *nodo = tree->root;
     TreeNode *upBNodo = NULL;
 
