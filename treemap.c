@@ -188,12 +188,19 @@ Pair * firstTreeMap(TreeMap * tree) {
 Pair * nextTreeMap(TreeMap * tree) {
     TreeNode *nodo = tree->current;
 
-    
     //si tiene un hijo derecho
     if(nodo->right != NULL){
         nodo = minimum(nodo->right);
         tree->current = nodo;
         return nodo->pair;
+    }
+
+    //busca el padre
+    TreeNode *padre = nodo->parent;
+
+    if(padre != NULL){
+        tree->current = padre;
+        return padre->pair;
     }
 
     return NULL;
