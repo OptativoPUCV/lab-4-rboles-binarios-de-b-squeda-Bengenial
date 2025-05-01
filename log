@@ -532,3 +532,20 @@ Thu, May  1, 2025  1:30:00 PM:
  tests:  25|1
 total_score: 60/70
 2fed1fd
+Thu, May  1, 2025  1:31:10 PM: 
+ treemap.c | 4 ++++
+ 1 file changed, 4 insertions(+)
+Compilation failed
+In file included from test.c:4:0:
+treemap.c: In function 'upperBound':
+treemap.c:178:13: error: too few arguments to function 'is_equal'
+         if (is_equal(key, nodo->pair->key)){
+             ^~~~~~~~
+treemap.c:22:5: note: declared here
+ int is_equal(TreeMap* tree, void* key1, void* key2){
+     ^~~~~~~~
+treemap.c:180:20: error: return from incompatible pointer type [-Werror=incompatible-pointer-types]
+             return nodo;
+                    ^~~~
+cc1.exe: all warnings being treated as errors
+3f8b185

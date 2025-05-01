@@ -175,6 +175,10 @@ Pair * upperBound(TreeMap * tree, void* key) {
     TreeNode *upBNodo = NULL;
 
     while (nodo != NULL){
+        if (is_equal(key, nodo->pair->key)){
+            tree->current = nodo;
+            return nodo;
+        }
         if (tree->lower_than(key,nodo->pair->key)){ //similar a la busqueda, solo almacena el nodo anterior upBNodo
             upBNodo = nodo;
             nodo = nodo->left;
