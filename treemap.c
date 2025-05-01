@@ -187,9 +187,12 @@ Pair * upperBound(TreeMap * tree, void* key) {
         }
     }
 
+    if (upBNodo != NULL){
+        tree->current = upBNodo;
+        return upBNodo->pair;
+    }
 
-    tree->current = upBNodo;
-    return upBNodo->pair;
+    return NULL;
 }
 
 Pair * firstTreeMap(TreeMap * tree) {
