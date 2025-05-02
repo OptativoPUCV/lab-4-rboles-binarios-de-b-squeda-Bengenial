@@ -92,10 +92,10 @@ void removeNode(TreeMap * tree, TreeNode* node) {
             tree->root = NULL; // raiz
         }
         if (node->parent->left == node){
-            node->left = NULL;
+            tree->root->left = NULL;
         }
         else{
-            node->right = NULL;
+            tree->root->right = NULL;
         }
         free(node);
         return;
@@ -220,7 +220,7 @@ Pair * nextTreeMap(TreeMap * tree) {
     //busca el padre
 
     TreeNode *padre = nodo->parent;
-    while(padre != NULL && nodo == padre->right){
+    while(padre != NULL && nodo->left == padre->right){
         nodo = padre;
         padre = padre->parent;
     }
